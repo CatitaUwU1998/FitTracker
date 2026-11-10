@@ -13,6 +13,10 @@
         android:theme="@style/Theme.FitTracker">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".BienvenidaActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
