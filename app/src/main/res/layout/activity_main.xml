@@ -1,19 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!-- ScrollView para poder bajar en pantallas chicas
+     (solo acepta un hijo, por eso adentro va un LinearLayout) -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/fondo"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- LinearLayout vertical: todo va uno debajo del otro -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_registro"
+            android:textColor="@color/morado_oscuro"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- tipo de entrenamiento -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_tipo" />
+
+        <Spinner
+            android:id="@+id/spinnerTipo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            style="@style/Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="italic" />
+
+        <!-- minutos, los uso para la barra de la meta -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_minutos" />
+
+        <EditText
+            android:id="@+id/editMinutos"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/hint_minutos"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+        <!-- intensidad, se elige solo una -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_intensidad" />
+
+        <RadioGroup
+            android:id="@+id/grupoIntensidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioBaja"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/intensidad_baja" />
+
+            <RadioButton
+                android:id="@+id/radioMedia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/intensidad_media" />
+
+            <RadioButton
+                android:id="@+id/radioAlta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/intensidad_alta" />
+        </RadioGroup>
+
+        <!-- checkbox, se pueden marcar varios -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_aspectos" />
+
+        <CheckBox
+            android:id="@+id/checkCalentamiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_calentamiento" />
+
+        <CheckBox
+            android:id="@+id/checkHidratacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_hidratacion" />
+
+        <CheckBox
+            android:id="@+id/checkEstiramiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_estiramiento" />
+
+        <!-- estrellas para la dificultad (1 a 5) -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_dificultad" />
+
+        <RatingBar
+            android:id="@+id/estrellas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1" />
+
+        <TextView
+            android:id="@+id/txtEstrellas"
+            style="@style/Texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sin_calificar" />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_registrar"
+            android:textSize="16sp" />
+
+        <!-- barra de la meta del dia -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_meta" />
+
+        <ProgressBar
+            android:id="@+id/barraMeta"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="60"
+            android:progress="0"
+            android:progressTint="@color/morado" />
+
+        <TextView
+            android:id="@+id/txtMeta"
+            style="@style/Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end" />
+
+        <!-- TableLayout para el resumen: nombre a la izquierda, valor a la derecha -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_resumen" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_resumen"
+            android:padding="12dp"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/res_sesiones" />
+
+                <TextView
+                    android:id="@+id/txtSesiones"
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/res_minutos" />
+
+                <TextView
+                    android:id="@+id/txtMinutos"
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/res_promedio" />
+
+                <TextView
+                    android:id="@+id/txtPromedio"
+                    style="@style/Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- lista de entrenamientos guardados -->
+        <TextView
+            style="@style/Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_historial" />
+
+        <TextView
+            android:id="@+id/txtVacio"
+            style="@style/Texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lista_vacia" />
+
+        <!-- nestedScrollingEnabled en false para que el ScrollView haga el scroll -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaEntrenamientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+</ScrollView>
