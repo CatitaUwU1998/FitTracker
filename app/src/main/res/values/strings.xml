@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">FitTracker</string>
+
+    <string name="desc_logo">Logo de FitTracker</string>
+    <string name="mensaje_bienvenida">Registra tus entrenamientos, controla tu meta diaria y mide cómo te sentiste en cada sesión.</string>
+    <string name="btn_comenzar">Comenzar</string>
+
+    <string name="titulo_registro">Registrar actividad</string>
+    <string name="lbl_tipo">Tipo de entrenamiento</string>
+    <string name="lbl_minutos">Duración (minutos)</string>
+    <string name="hint_minutos">Ej: 30</string>
+    <string name="lbl_intensidad">Intensidad</string>
+    <string name="intensidad_baja">Baja</string>
+    <string name="intensidad_media">Media</string>
+    <string name="intensidad_alta">Alta</string>
+    <string name="lbl_aspectos">Aspectos completados</string>
+    <string name="cb_calentamiento">Calentamiento realizado</string>
+    <string name="cb_hidratacion">Hidratación adecuada</string>
+    <string name="cb_estiramiento">Estiramiento final</string>
+    <string name="lbl_dificultad">Dificultad / esfuerzo percibido</string>
+    <string name="sin_calificar">Sin calificar</string>
+    <string name="btn_registrar">Registrar sesión</string>
+
+    <string name="lbl_meta">Meta diaria (60 min)</string>
+    <string name="lbl_resumen">Resumen del día</string>
+    <string name="res_sesiones">Sesiones registradas</string>
+    <string name="res_minutos">Minutos acumulados</string>
+    <string name="res_promedio">Dificultad promedio</string>
+    <string name="lbl_historial">Historial de sesiones</string>
+    <string name="lista_vacia">Aún no hay sesiones registradas</string>
+
+    <string-array name="tipos_entrenamiento">
+        <item>Fuerza</item>
+        <item>Cardio</item>
+        <item>Yoga</item>
+        <item>Calistenia</item>
+    </string-array>
+
+    <string-array name="descripciones_entrenamiento">
+        <item>Trabajo con pesas o resistencia para ganar fuerza.</item>
+        <item>Actividad aeróbica: correr, bicicleta, cuerda.</item>
+        <item>Posturas, respiración y flexibilidad.</item>
+        <item>Ejercicios con el peso del propio cuerpo.</item>
+    </string-array>
 </resources>

@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- mis colores -->
+    <color name="morado">#7E57C2</color>
+    <color name="morado_oscuro">#5E35B1</color>
+    <color name="lila">#EDE7F6</color>
+    <color name="fondo">#FAF7FD</color>
+    <color name="texto_gris">#4A4458</color>
+
+    <!-- colores de la intensidad -->
+    <color name="intensidad_baja">#43A047</color>
+    <color name="intensidad_media">#FB8C00</color>
+    <color name="intensidad_alta">#E53935</color>
 </resources>
